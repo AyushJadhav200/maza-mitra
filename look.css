@@ -1,0 +1,270 @@
+/* 🌟 Theme Variables */
+:root {
+  --primary-bg: #f9f9f9;
+  --primary-text: #222;
+  --card-bg: #ffffff;
+  --btn-bg: #004aad;
+  --btn-hover: #003080;
+  --hero-bg: linear-gradient(to right, #e0ecff, #ffffff);
+  --footer-bg: #222;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --primary-bg: #0f172a;
+  --primary-text: #e2e8f0;
+  --card-bg: #1e293b;
+  --btn-bg: #2563eb;
+  --btn-hover: #1d4ed8;
+  --hero-bg: linear-gradient(to right, #1e293b, #334155);
+  --footer-bg: #0f172a;
+  --card-shadow: rgba(255, 255, 255, 0.05);
+}
+
+/* 🌐 Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  transition: background 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* 📌 Header */
+header {
+  background: var(--btn-bg);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* 🎯 Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--hero-bg);
+}
+.hero h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 16px;
+}
+.hero .btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--btn-bg);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.hero .btn:hover {
+  background: var(--btn-hover);
+}
+
+/* 🧩 Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px 20px;
+}
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h3 {
+  color: var(--btn-bg);
+  margin-bottom: 8px;
+}
+.card p {
+  margin-bottom: 12px;
+}
+.card .btn {
+  background: var(--btn-bg);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.card .btn:hover {
+  background: var(--btn-hover);
+}
+.card input,
+.card select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+}
+
+/* 📦 Footer */
+footer {
+  background: var(--footer-bg);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* 🎛 Top Right Fixed Controls */
+#topRightButtons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+}
+
+/* 🌗 Dark Mode Button */
+#darkToggle {
+  background: linear-gradient(135deg, #004aad, #2196f3);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+#darkToggle:hover {
+  background: linear-gradient(135deg, #003080, #1976d2);
+  transform: scale(1.05);
+}
+
+/* 👤 Profile Button & Dropdown */
+.profile-dropdown button#profileBtn {
+  background: linear-gradient(135deg, #004aad, #2196f3);
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-dropdown button#profileBtn img {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 0 2px white);
+}
+
+.profile-dropdown button#profileBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #2196f3, 0 0 20px #004aad;
+}
+
+
+/* 🔝 Back to Top */
+#backToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: var(--btn-bg);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+#backToTopBtn:hover {
+  background: var(--btn-hover);
+}
+
+/* ✨ Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #topRightButtons {
+    top: 10px;
+    right: 10px;
+    flex-direction: row-reverse;
+  }
+
+  #darkToggle {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .profile-dropdown button {
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    right: -30px;
+  }
+}
