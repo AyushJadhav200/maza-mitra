@@ -1,0 +1,84 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f9fbfd, #e9eff5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Auth Container */
+.auth-container {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: #222;
+  font-size: 1.5rem;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border 0.2s ease;
+  font-size: 0.95rem;
+}
+.auth-container input:focus {
+  outline: none;
+  border-color: #004aad;
+}
+
+/* Button */
+.auth-container button {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+.auth-container button:hover {
+  background: #003080;
+}
+
+/* Links and Messages */
+.auth-container p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.auth-container a {
+  color: #004aad;
+  text-decoration: none;
+  font-weight: 500;
+}
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}

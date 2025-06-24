@@ -1,98 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign Up | MazaMitra</title>
-  <link rel="stylesheet" href="look.css"> <!-- Your main CSS file -->
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(to right, #004aad, #00bcd4);
-    }
-    .signup-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      width: 300px;
-      text-align: center;
-    }
-    .signup-box h2 {
-      margin-bottom: 20px;
-      color: #004aad;
-    }
-    .signup-box input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .signup-box button {
-      width: 100%;
-      padding: 10px;
-      background: #004aad;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .signup-box p {
-      margin-top: 10px;
-    }
-    .signup-box a {
-      color: #004aad;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - MazaMitra</title>
+  <link rel="stylesheet" href="auth.css" />
 </head>
 <body>
-  
-  <script>
-    function handleSignup() {
-      const email = document.getElementById("signupEmail").value;
-      const password = document.getElementById("signupPassword").value;
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>📝 Create Your MazaMitra Account</h2>
+      <input type="text" id="signupUsername" placeholder="Choose a Username" required />
+      <input type="password" id="signupPassword" placeholder="Create a Password" required />
+      <button onclick="signup()">Sign Up</button>
+      <p class="switch-text">Already have an account? <a href="index.html">Login here</a></p>
+      <p id="signupMsg" class="message"></p>
+    </div>
+  </div>
 
-      if (!email || !password) {
-        alert("Please fill all fields.");
-        return;
-      }
-
-      // Save to localStorage
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userPassword", password);
-
-      alert("Account created successfully!");
-      window.location.href = "login.html";
-    }
-  function signup() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if (email && password) {
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userPassword", password);
-      alert("Signup successful! Now login.");
-      window.location.href = "login.html";  // ✅ Redirect to login page
-    } else {
-      alert("Please fill all fields.");
-    }
-  }
-  </script>
-  <!-- signup.html -->
-<form onsubmit="handleSignup(event)" class="card">
-  <h2>Create Account</h2>
-  <input type="text" id="signupUser" placeholder="Create Username" required />
-  <input type="password" id="signupPass" placeholder="Create Password" required />
-  <button type="submit" class="btn">Sign Up</button>
-  <p>Already have an account? <a href="login.html">Login</a></p>
-</form>
   <script src="auth.js"></script>
 </body>
 </html>

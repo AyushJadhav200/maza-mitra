@@ -1,98 +1,23 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maza Mitra - Your Digital Helper</title>
-  <link rel="stylesheet" href="look.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MazaMitra</title>
+  <link rel="stylesheet" href="auth.css" />
 </head>
 <body>
-  <!-- 🔝 Fixed top-right buttons: Dark Mode + Profile -->
-  <div id="topRightButtons">
-    <button id="darkToggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙 Dark Mode</button><div class="profile-dropdown">
-  <button id="profileBtn" onclick="toggleDropdown()" aria-label="Profile menu">
-  <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="Profile" />
-</button>
-
-  <div class="dropdown-menu" id="dropdownMenu">
-    <p>Welcome, Ayush!</p>
-    <button onclick="editProfile()">Edit Profile</button>
-    <button onclick="logout()">Logout</button>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>🔐 Login to MazaMitra</h2>
+      <input type="text" id="loginUsername" placeholder="Enter Username" required />
+      <input type="password" id="loginPassword" placeholder="Enter Password" required />
+      <button onclick="login()">Login</button>
+      <p class="switch-text">Don't have an account? <a href="signup.html">Sign up here</a></p>
+      <p id="loginMsg" class="message"></p>
+    </div>
   </div>
-</div>
 
-  </div>  <!-- 🔰 Website Header -->  <header>
-    <h1>🚀 MazaMitra</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#news-section">News</a>
-      <a href="#govt-help">Govt Help</a>
-      <a href="#earn">Earn Online</a>
-      <a href="#tools">Tools</a>
-    </nav>
-  </header>  <!-- 💡 Hero Section -->  <section class="hero">
-    <h2>Welcome to MazaMitra 🇮🇳</h2>
-    <p>Your trusted guide for Indian news, government help, smart tools, and online earning tips — all in one place!</p>
-    <a href="#services" class="btn">Explore Now</a>
-  </section>  <!-- 📌 Services Overview -->  <section id="services" class="cards">
-    <div class="card">
-      <h3>📰 Daily News</h3>
-      <p>Top 5 news stories updated daily in short format.</p>
-    </div>
-    <div class="card">
-      <h3>📄 Govt Help</h3>
-      <p>Guides for PAN, Aadhaar, PM Yojanas, and more.</p>
-    </div>
-    <div class="card">
-      <h3>💼 Earn Online</h3>
-      <p>Learn freelancing, reselling, content creation & more.</p>
-    </div>
-  </section>  <!-- 📰 News Section -->  <section class="hero fade-in">
-    <h2>📰 Top 5 News of the Day</h2>
-    <p>Updated daily with short, easy-to-read news headlines.</p>
-  </section>
-  <section class="cards" id="news-section">
-    <div id="newsContainer" class="card">Loading news...</div>
-  </section>  <!-- 🏛 Government Help Section -->  <section class="hero fade-in">
-    <h2>📄 Government Help Center</h2>
-    <p>Simple guides to apply for Indian government services and schemes.</p>
-  </section>
-  <section class="cards" id="govt-help">
-    <div class="card">
-      <h3>🆔 Aadhaar Update</h3>
-      <p>Learn how to update your Aadhaar card online or offline with official links.</p>
-      <a href="https://uidai.gov.in" target="_blank" class="btn">Apply Now</a>
-    </div>
-    <div class="card">
-      <h3>💳 PAN Card</h3>
-      <p>Step-by-step guide to apply for a new PAN or update an old one.</p>
-      <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" class="btn">Apply PAN</a>
-    </div>
-    <div class="card">
-      <h3>🏠 PM Awas Yojana</h3>
-      <p>Know your eligibility and application process for free home benefits.</p>
-      <a href="https://pmayg.nic.in" target="_blank" class="btn">Check PMAY</a>
-    </div>
-    <div class="card">
-      <h3>🍚 Ration Card Online</h3>
-      <p>Apply for new ration card and check state-wise status online.</p>
-      <a href="https://nfsa.gov.in" target="_blank" class="btn">Go to Portal</a>
-    </div>
-    <div class="card">
-      <h3>🎓 Student Scholarships</h3>
-      <p>Explore available govt scholarships for students from 9th to graduation.</p>
-      <a href="https://scholarships.gov.in" target="_blank" class="btn">Apply Now</a>
-    </div>
-  </section>  <!-- 🛠 Tools Section -->  <section class="hero fade-in">
-    <h2>🛠 Digital Tools</h2>
-    <p>Use helpful calculators and converters directly on MazaMitra.</p>
-  </section>
-  <section class="tools-scroll" id="tools">
-    <div class="cards">
-      <!-- All Tool Cards (Age, EMI, GST, etc.) -->
-      <!-- Already present in your old HTML, keep as is -->
-    </div>
-  </section>  <!-- 📞 Footer -->  <footer>
-    <p>© 2025 MazaMitra. Made with ❤ in India.</p>
-  </footer>  <!-- 🔽 Scripts --> 
-   <script src="back.js"></script></body>
+  <script src="auth.js"></script>
+</body>
 </html>

@@ -143,6 +143,21 @@ nav a:hover {
   color: inherit;
 }
 
+/* 📰 Horizontal News Scroll */
+.news-scroll {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.news-scroll .cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+.news-scroll .card {
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
 /* 📦 Footer */
 footer {
   background: var(--footer-bg);
@@ -156,7 +171,7 @@ footer {
 #topRightButtons {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -167,10 +182,10 @@ footer {
 #darkToggle {
   background: linear-gradient(135deg, #004aad, #2196f3);
   color: white;
-  padding: 10px 18px;
+  padding: 8px 12px;
   border: none;
   border-radius: 30px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -182,33 +197,56 @@ footer {
 }
 
 /* 👤 Profile Button & Dropdown */
-.profile-dropdown button#profileBtn {
-  background: linear-gradient(135deg, #004aad, #2196f3);
-  border: 2px solid white;
-  border-radius: 50%;
+.profile-dropdown {
+  position: relative;
+}
+.profile-dropdown button {
+  background: var(--btn-bg);
+  color: white;
   padding: 8px;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.3s;
 }
-
-.profile-dropdown button#profileBtn img {
-  width: 26px;
-  height: 26px;
-  filter: drop-shadow(0 0 2px white);
+.profile-dropdown button:hover {
+  background: var(--btn-hover);
+  transform: scale(1.05);
 }
-
-.profile-dropdown button#profileBtn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px #2196f3, 0 0 20px #004aad;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  width: 180px;
+  z-index: 999;
 }
-
+.dropdown-menu p,
+.dropdown-menu button {
+  margin: 10px 0;
+  font-size: 14px;
+}
+.dropdown-menu button {
+  background: var(--btn-bg);
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+.dropdown-menu button:hover {
+  background: var(--btn-hover);
+}
+.profile-dropdown.open .dropdown-menu {
+  display: block;
+}
 
 /* 🔝 Back to Top */
 #backToTopBtn {
@@ -250,21 +288,142 @@ footer {
 
   #topRightButtons {
     top: 10px;
-    right: 10px;
-    flex-direction: row-reverse;
+    left: 10px;
+    flex-direction: row;
   }
 
   #darkToggle {
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 6px 10px;
+    font-size: 11px;
   }
 
   .profile-dropdown button {
-    padding: 8px;
-    font-size: 18px;
+    padding: 6px;
+    font-size: 16px;
   }
 
   .dropdown-menu {
-    right: -30px;
+    left: 0;
+  }
+}
+/* 🔁 Horizontal Scroll Container */
+.news-scroll {
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px 10px 20px 10px; /* Keep left-right tight */
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards.horizontal .card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+.cards.horizontal .card:hover {
+  transform: translateY(-5px);
+}
+
+
+.cards.horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards.horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+.cards.horizontal::-webkit-scrollbar-thumb {
+  background: var(--btn-bg);
+  border-radius: 4px;
+}
+.cards.horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cards.horizontal .card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+.cards.horizontal .card:hover {
+  transform: translateY(-5px);
+}
+/* Optional: Hide scrollbar */
+.cards.horizontal {
+  scrollbar-width: none; /* Firefox */
+}
+.cards.horizontal::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.news-scroll {
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.horizontal {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  padding-left: 16px; /* 👈 Fix left cut */
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.cards.horizontal .card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  min-width: 260px;
+  max-width: 280px;
+}
+
+
+.cards.horizontal .card {
+  flex: 0 0 280px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+.cards.horizontal .card:hover {
+  transform: translateY(-5px);
+}
+@media (max-width: 480px) {
+  .cards.horizontal {
+    padding-left: 12px;
+  }
+
+  .cards.horizontal .card {
+    flex: 0 0 240px;
+    min-width: 220px;
+    max-width: 240px;
   }
 }
