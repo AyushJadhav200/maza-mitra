@@ -10,13 +10,55 @@
   <div class="auth-container">
     <div class="auth-card">
       <h2>🔐 Login to MazaMitra</h2>
+
       <input type="text" id="loginUsername" placeholder="Enter Username" required />
       <input type="password" id="loginPassword" placeholder="Enter Password" required />
+
       <button onclick="login()">Login</button>
+
       <p class="switch-text">Don't have an account? <a href="signup.html">Sign up here</a></p>
       <p id="loginMsg" class="message"></p>
+
+      <!-- Google Sign-In Button -->
+      <button class="google-btn" onclick="googleLogin()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Icon" />
+        Login with Google
+      </button>
     </div>
   </div>
+
+  <!-- Firebase SDK + Google Login Logic -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCWg0X6yA7jGQsDmNlWZ-O3MJX4rIv-SoY",
+      authDomain: "mazamitra-8ca1f.firebaseapp.com",
+      projectId: "mazamitra-8ca1f",
+      storageBucket: "mazamitra-8ca1f.appspot.com",
+      messagingSenderId: "628282357713",
+      appId: "1:628282357713:web:e00b5555abd1f6c2abd2f0",
+      measurementId: "G-HZ0K03RY8F"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    window.googleLogin = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          alert(`Welcome ${user.displayName}!`);
+          window.location.href = "home.html";
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Google login failed!");
+        });
+    };
+  </script>
 
   <script src="auth.js"></script>
 </body>
